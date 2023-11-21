@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useState } from 'react';
 import { getData } from '../../API/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../../store/productSlice/ProductSlice';
@@ -8,14 +7,12 @@ import { addtocart } from '../../store/cartSlice/cartSlice';
 export default function Product() {
  const dispatch = useDispatch();
  const product =  useSelector((state)=> state.product.data);
-//  const cart =  useSelector((state)=> state.cartSlice);
 
 const addtocartfun = (id)=>{
   let _copy = product.filter((data)=>{
       return data.id === id
   });
   dispatch(addtocart(..._copy))
-  // console.log(id)
 }
 
 
